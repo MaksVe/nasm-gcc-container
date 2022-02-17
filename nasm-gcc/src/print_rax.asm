@@ -30,6 +30,18 @@ _start:
     sar rax, cl
     and rax, 0xf
 
+    ; about lea rsi, [codes + rax]
+    ; square brackets denote indirect addressing; the address is written inside them
+    ; mov rsi, rax - copies rax into rsi
+    ; mov rsi, [rax] - copies memory contents (8 sequential bytes) starting at address
+    ; stored in rax into rsi (rsi is 8 bytes long)
+    
+    ; lea means "load effective address". It allows to calculate an address of a memory cell
+    ; and store it somewhere
+
+    ; equivalent of combination:
+    ; -- mov rsi, codes
+    ; -- add rsi, rax
     lea rsi, [codes + rax]
     mov rax, 1
 
