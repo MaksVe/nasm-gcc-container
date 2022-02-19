@@ -16,13 +16,16 @@ print_newline:
     ret
 
 strlen:
+    push r13                ; save the initial value of r13
+    xor r13, r13            ; make sure r13 is zeroed
 .loop:
     cmp byte [rdi + r13], 0
     je .end
     inc r13
     jmp .loop
 .end:
-    mov rax, r13
+    mov rax, r13            ; move the return value to rax
+    pop r13                 ; restore the original r13
     ret
 
 _start:
