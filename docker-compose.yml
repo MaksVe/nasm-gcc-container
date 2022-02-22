@@ -2,6 +2,7 @@ version: "3"
 
 services:
   nasm-gcc:
+    platform: linux/x86_64
     build: ./nasm-gcc
     working_dir: /usr/src
     volumes:
